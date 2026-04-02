@@ -1,372 +1,150 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ciro Caputo | Sito personale</title>
-  <meta name="description" content="Sito personale di Ciro Caputo" />
-  <style>
-    :root {
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #1d4ed8;
-      --accent-dark: #1e3a8a;
-      --max: 980px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .wrap {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-    }
-
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 18px 0;
-    }
-
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--accent-dark);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin: 0;
-      padding: 0;
-      font-size: 0.98rem;
-    }
-
-    .hero {
-      padding: 56px 0 34px;
-    }
-
-    .hero-box {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 28px;
-      align-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    }
-
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #dbeafe, #eff6ff);
-      border: 1px solid #bfdbfe;
-      display: grid;
-      place-items: center;
-      color: var(--accent-dark);
-      font-size: 1rem;
-      text-align: center;
-      padding: 12px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: 2rem;
-      line-height: 1.2;
-      color: #111827;
-    }
-
-    .subtitle {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    main {
-      padding-bottom: 48px;
-    }
-
-    section {
-      scroll-margin-top: 88px;
-      margin-bottom: 26px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 1.5rem;
-      color: #111827;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .list {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .list li {
-      margin-bottom: 12px;
-    }
-
-    .item-title {
-      font-weight: 700;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      background: var(--surface);
-      padding: 24px 0 34px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 760px) {
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero-box {
-        grid-template-columns: 1fr;
-      }
-
-      .avatar {
-        width: 130px;
-        height: 130px;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 1.7rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap topbar">
-      <div class="brand">Ciro Caputo</div>
-      <nav>
-        <ul>
-          <li><a href="#about">Chi sono</a></li>
-          <li><a href="#research">Ricerca</a></li>
-          <li><a href="#teaching">Didattica</a></li>
-          <li><a href="#publications">Pubblicazioni</a></li>
-          <li><a href="#students">Progetti</a></li>
-          <li><a href="#contact">Contatti</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-box">
-        <div class="avatar">Inserisci qui una tua foto</div>
-        <div>
-          <h1>Ciro Caputo</h1>
-          <p class="subtitle">Docente, ricercatore indipendente, professionista</p>
-          <p>
-            Benvenuto nel mio sito personale. Qui trovi informazioni sul mio profilo,
-            sulle attività didattiche, sui progetti, sulle pubblicazioni e sui contatti.
-          </p>
-          <div class="hero-links">
-            <a class="btn primary" href="#publications">Vedi pubblicazioni</a>
-            <a class="btn" href="#contact">Contattami</a>
-            <a class="btn" href="cv.pdf" target="_blank" rel="noopener">Scarica CV</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="card">
-        <h2>Chi sono</h2>
-        <p>
-          Scrivi qui una presentazione breve e chiara. Per esempio: il tuo ruolo,
-          il settore in cui lavori, i tuoi interessi principali e gli ambiti in cui operi.
-        </p>
-        <p>
-          Questa sezione serve a spiegare in poche righe chi sei e cosa fai. Puoi anche
-          aggiungere il tuo percorso accademico o professionale.
-        </p>
-      </div>
-    </section>
-
-    <section id="research">
-      <div class="card">
-        <h2>Ricerca</h2>
-        <ul class="list">
-          <li>
-            <span class="item-title">Area 1</span><br />
-            Breve descrizione del primo ambito di ricerca o interesse.
-          </li>
-          <li>
-            <span class="item-title">Area 2</span><br />
-            Breve descrizione del secondo ambito di ricerca o interesse.
-          </li>
-          <li>
-            <span class="item-title">Area 3</span><br />
-            Breve descrizione del terzo ambito di ricerca o interesse.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="teaching">
-      <div class="card">
-        <h2>Didattica</h2>
-        <ul class="list">
-          <li>Corso o insegnamento 1, anno accademico o scolastico</li>
-          <li>Corso o insegnamento 2, anno accademico o scolastico</li>
-          <li>Corso o insegnamento 3, anno accademico o scolastico</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="card">
-        <h2>Pubblicazioni</h2>
-        <ul class="list">
-          <li>
-            <span class="item-title">Titolo pubblicazione 1</span><br />
-            Rivista, editore o sede, anno. <a href="#">Link</a>
-          </li>
-          <li>
-            <span class="item-title">Titolo pubblicazione 2</span><br />
-            Rivista, editore o sede, anno. <a href="#">Link</a>
-          </li>
-          <li>
-            <span class="item-title">Titolo pubblicazione 3</span><br />
-            Rivista, editore o sede, anno. <a href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="students">
-      <div class="grid-2">
-        <div class="card">
-          <h2>Progetti</h2>
-          <ul class="list">
-            <li>Progetto 1 con breve descrizione.</li>
-            <li>Progetto 2 con breve descrizione.</li>
-            <li>Progetto 3 con breve descrizione.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Materiali</h2>
-          <ul class="list">
-            <li><a href="#">Dispense o slides</a></li>
-            <li><a href="#">Appunti o risorse</a></li>
-            <li><a href="#">Documenti utili</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="card">
-        <h2>Contatti</h2>
-        <p>Email: <a href="mailto:cirocaputo@hotmail.it">cirocaputo@hotmail.it</a></p>
-        <p>PEC: <a href="mailto:cirocaputo@postecert.it">cirocaputo@postecert.it</a></p>
-        <p>Telefono: <a href="tel:+393348999888">3348999888</a></p>
-        <p class="muted">Puoi aggiungere anche profili LinkedIn, ORCID, Google Scholar o ResearchGate.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © 2026 Ciro Caputo. Tutti i diritti riservati.
-    </div>
-  </footer>
-</body>
-</html>
+<p>&nbsp;</p>
+<header class="topbar">
+<div class="wrap nav"><a class="brand" href="#home">Luca Bur</a><nav class="menu"><a href="#about">Chi sono</a> <a href="#work">Attivit&agrave;</a> <a href="#projects">Progetti</a> <a href="#timeline">Percorso</a> <a href="#contact">Contatti</a></nav></div>
+</header><main id="home">
+<section class="hero">
+<div class="wrap hero-grid">
+<div class="hero-card">
+<div class="eyebrow">Sito personale</div>
+<h1>Luca Bur</h1>
+<p class="lead">Pagina personale con profilo, attivit&agrave;, progetti e contatti. Una struttura pulita, sobria e ordinata, pensata per presentarti bene online senza copiare in modo identico altri siti.</p>
+<div class="hero-actions"><a class="btn primary" href="#projects">Vedi i progetti</a> <a class="btn secondary" href="#contact">Contattami</a></div>
+</div>
+<aside class="hero-card profile-box">
+<div class="avatar">LB</div>
+<div class="mini">
+<div><strong>Ruolo</strong> <span class="muted">Contabile, Staistico</span></div>
+<div><strong>Sede</strong> <span class="muted">Trieste</span></div>
+<div><strong>Email</strong> <span class="muted">lucaburattots@gmail.com</span></div>
+<div><strong>Link</strong> <span class="muted">GitHub, LinkedIn, CV</span></div>
+</div>
+</aside>
+</div>
+</section>
+<section id="about" class="section">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2>Chi sono</h2>
+<p class="sub">Qui presenti una descrizione breve ma credibile, con tono semplice e diretto.</p>
+</div>
+</div>
+<div class="grid-2">
+<div class="panel">
+<p>Scrivi qui 6 o 8 righe su di te. Puoi spiegare cosa fai, su cosa lavori, quali temi ti interessano e che tipo di attivit&agrave; porti avanti.</p>
+<p>Questa sezione sostituisce la classica bio accademica. Il layout resta ordinato ma pi&ugrave; personale e moderno.</p>
+</div>
+<div class="panel">
+<ul class="list">
+<li><strong>Interessi principali</strong><br />📈💰📊Contaiblit&agrave; e Statistica&nbsp;</li>
+<li>🧗&zwj;♀️arrampicata</li>
+<li>🏦 Finanza personale</li>
+<li>♟️Chess</li>
+<li><strong>Competenze</strong><br /><span class="muted">Inserisci strumenti, linguaggi o attivit&agrave;.</span></li>
+<li><strong>Obiettivi</strong><br /><span class="muted">Scrivi cosa vuoi costruire o migliorare.</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="work" class="section">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2>Attivit&agrave;</h2>
+<p class="sub">Tre blocchi semplici per far capire subito cosa fai.</p>
+</div>
+</div>
+<div class="cards">
+<article class="card">
+<h3>Ricerca o studio</h3>
+<p class="muted">Descrivi il primo ambito in cui lavori o ti stai formando.</p>
+</article>
+<article class="card">
+<h3>Didattica o lavoro</h3>
+<p class="muted">Scrivi il secondo ambito, con una frase concreta e breve.</p>
+</article>
+<article class="card">
+<h3>Collaborazioni</h3>
+<p class="muted">Inserisci attivit&agrave; condivise, gruppi, team o progetti.</p>
+</article>
+</div>
+</div>
+</section>
+<section id="projects" class="section">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2>Progetti</h2>
+<p class="sub">Qui puoi mettere lavori, articoli, software, tesi, portfolio o esperienze.</p>
+</div>
+</div>
+<div class="cards">
+<article class="card">
+<h3>Progetto uno</h3>
+<p class="muted">Una descrizione essenziale. Puoi aggiungere un link esterno.</p>
+</article>
+<article class="card">
+<h3>Progetto due</h3>
+<p class="muted">Scrivi cosa hai fatto e perch&eacute; conta.</p>
+</article>
+<article class="card">
+<h3>Progetto tre</h3>
+<p class="muted">Puoi usare questa card per un sito, un report o un repository.</p>
+</article>
+</div>
+</div>
+</section>
+<section id="timeline" class="section">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2>Percorso</h2>
+<p class="sub">Una timeline pulita al posto di pagine separate troppo rigide.</p>
+</div>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="date">2024 - oggi</div>
+<div><strong>Favretto Libri Srl</strong></div>
+<div class="muted"><span class="eujQNb">Gestione completa del magazzino libri: </span></div>
+</div>
+<div class="timeline-item">
+<div class="date">2024- oggi</div>
+<div><strong>Studio Crevatin</strong></div>
+<div class="muted">Contabilit&agrave; generale, &nbsp;dichiarazioni redditi.</div>
+<div class="muted">&nbsp;</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact" class="section">
+<div class="wrap">
+<div class="section-head">
+<div>
+<h2>&nbsp;</h2>
+<h2>Contatti</h2>
+<p class="sub">Metti i link reali o lascia solo quelli che vuoi rendere pubblici.</p>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-grid">
+<div><strong>Email</strong>
+<p class="muted">lucaburattots@gmail.com</p>
+</div>
+<div><strong>GitHub</strong>
+<p class="muted">github.com/lucabur360</p>
+</div>
+<div><strong>LinkedIn</strong>
+<p class="muted"><a title="Linkedin" href="https://www.linkedin.com/in/luca-buratto/">Inserisci il link</a></p>
+</div>
+<div><strong>CV</strong>
+<p class="muted">Aggiungi un PDF o una pagina dedicata</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main><footer>
+<div class="wrap">&copy; <span id="year"></span> Luca Bur. Tutti i contenuti sono aggiornabili dal file index.html.</div>
+</footer>
