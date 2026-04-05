@@ -1,3 +1,12 @@
+Certamente, ho capito perfettamente. Ho modificato il codice per applicare un gradiente sfumato sullo sfondo che passa dal Navy scuro al Blu Chiaro.
+
+Ecco le modifiche principali:
+
+1.  **Sfondo Sfumato (Gradient):** Ho applicato un `linear-gradient` al `body` che parte da un Navy profondo in alto (`#0a192f`) e sfuma dolcemente verso un blu chiaro e polveroso in basso (`#60a5fa`). L'effetto è molto morbido e graduale.
+2.  **Trasparenza delle Card:** Per far percepire la sfumatura di sfondo anche attraverso le sezioni, ho reso le card (`.card`, `.hero-box`) leggermente trasparenti (`rgba(30, 41, 59, 0.8)`). Questo crea un effetto "vetro" elegante che fonde i contenuti con lo sfondo.
+3.  **Contrasto Testi:** Ho mantenuto l'uso dell'azzurro acceso (`--accent`) per i titoli e i link per garantire che risaltino chiaramente sullo sfondo scuro.
+
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head> 
@@ -7,14 +16,15 @@
   <meta name="description" content="Sito personale di Luca Buratto" />
   <style>
     :root {
-      /* Palette Navy */
-      --bg: #0f172a;       /* Navy molto scuro */
-      --surface: #1e293b;  /* Blu slate per le card */
+      /* Palette Gradient */
+      --navy-deep: #0a192f;   /* Navy profondo per l'alto */
+      --blue-light: #60a5fa;  /* Blu chiaro polveroso per il basso */
+      
+      --surface: rgba(30, 41, 59, 0.8); /* Blu slate trasparente per le card */
       --text: #f8fafc;     /* Testo quasi bianco */
       --muted: #94a3b8;    /* Testo secondario grigio-blu */
-      --line: #334155;     /* Bordi discreti */
+      --line: rgba(51, 65, 85, 0.5); /* Bordi discreti semisconosciuti */
       --accent: #38bdf8;    /* Celeste per link e bottoni per contrasto */
-      --accent-dark: #0ea5e9;
       --max: 980px;
     }
 
@@ -24,14 +34,19 @@
 
     html {
       scroll-behavior: smooth;
+      /* Assicura che il gradiente copra l'intera altezza anche se il contenuto è poco */
+      height: 100%;
     }
 
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      background: var(--bg);
+      /* Gradiente sfumato dal navy al blu chiaro */
+      background: linear-gradient(180deg, var(--navy-deep) 0%, var(--blue-light) 100%);
+      background-attachment: fixed; /* Mantiene lo sfondo fisso durante lo scroll */
       color: var(--text);
       line-height: 1.65;
+      min-height: 100%;
     }
 
     a {
@@ -51,11 +66,12 @@
     }
 
     header {
-      background: var(--bg);
+      background: rgba(10, 25, 47, 0.9); /* Navy solido con leggera trasparenza */
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
       z-index: 10;
+      backdrop-filter: blur(5px); /* Effetto sfocatura sullo sfondo del header */
     }
 
     .topbar {
@@ -96,6 +112,7 @@
       gap: 28px;
       align-items: center;
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px); /* Sfoca lo sfondo sotto la card hero */
     }
 
     .avatar {
@@ -148,7 +165,7 @@
 
     .btn.primary {
       background: var(--accent);
-      color: var(--bg);
+      color: #0a192f; /* Colore navy scuro per il testo del bottone */
       border-color: var(--accent);
       font-weight: bold;
     }
@@ -173,6 +190,7 @@
       border-radius: 16px;
       padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px); /* Sfoca lo sfondo sotto tutte le card */
     }
 
     h2 {
@@ -209,7 +227,7 @@
 
     footer {
       border-top: 1px solid var(--line);
-      background: var(--bg);
+      background: rgba(10, 25, 47, 0.9);
       padding: 24px 0 34px;
       color: var(--muted);
       font-size: 0.95rem;
@@ -377,3 +395,4 @@
   </footer>
 </body>
 </html>
+```
