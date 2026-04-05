@@ -7,7 +7,7 @@
   <meta name="description" content="Sito personale di Luca Buratto" />
   <style>
     :root {
-/* Palette Navy */
+      /* Palette Navy */
       --bg: #0f172a;       /* Navy molto scuro */
       --surface: #1e293b;  /* Blu slate per le card */
       --text: #f8fafc;     /* Testo quasi bianco */
@@ -42,6 +42,7 @@
 
     a:hover {
       text-decoration: underline;
+      color: white;
     }
 
     .wrap {
@@ -50,7 +51,7 @@
     }
 
     header {
-      background: var(--surface);
+      background: var(--bg);
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
@@ -68,7 +69,7 @@
     .brand {
       font-size: 1.35rem;
       font-weight: 700;
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
     nav ul {
@@ -94,34 +95,32 @@
       grid-template-columns: 160px 1fr;
       gap: 28px;
       align-items: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     }
 
     .avatar {
       width: 160px;
       height: 160px;
       border-radius: 14px;
-      background: linear-gradient(135deg, #dbeafe, #eff6ff);
-      border: 1px solid #bfdbfe;
+      background: #0f172a;
+      border: 1px solid var(--line);
       display: grid;
       place-items: center;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 12px;
+      object-fit: cover;
     }
 
     h1 {
       margin: 0 0 12px;
       font-size: 2rem;
       line-height: 1.2;
-      color: #111827;
+      color: #ffffff;
     }
 
     .subtitle {
       margin: 0 0 12px;
-      color: var(--muted);
+      color: var(--accent);
       font-size: 1.02rem;
+      font-weight: bold;
     }
 
     .hero-links {
@@ -136,15 +135,27 @@
       padding: 10px 14px;
       border-radius: 10px;
       border: 1px solid var(--line);
-      background: #fff;
-      color: var(--text);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
       font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
     }
 
     .btn.primary {
       background: var(--accent);
-      color: white;
+      color: var(--bg);
       border-color: var(--accent);
+      font-weight: bold;
+    }
+
+    .btn.primary:hover {
+      background: #7dd3fc;
+      border-color: #7dd3fc;
     }
 
     main {
@@ -161,14 +172,14 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     h2 {
       margin-top: 0;
       margin-bottom: 14px;
       font-size: 1.5rem;
-      color: #111827;
+      color: var(--accent);
     }
 
     p {
@@ -193,11 +204,12 @@
       font-weight: 700;
       display: inline-block;
       margin-bottom: 4px;
+      color: #fff;
     }
 
     footer {
       border-top: 1px solid var(--line);
-      background: var(--surface);
+      background: var(--bg);
       padding: 24px 0 34px;
       color: var(--muted);
       font-size: 0.95rem;
@@ -252,8 +264,7 @@
         <img 
           src="https://media.licdn.com/dms/image/v2/D4D03AQFwMAv0fmTBNw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701862830420?e=1776902400&v=beta&t=zHkTjZbvYc5BtGJLrQxHG-kLTSoOB9BuLND0Ukpm0no" 
           alt="Luca Buratto" 
-          class="avatar" 
-          style="object-fit: cover; border: 1px solid #bfdbfe;"
+          class="avatar"
         >
         <div>
           <h1>Luca Buratto</h1>
